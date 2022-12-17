@@ -10,7 +10,6 @@ router.all("/", (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   try {
-    console.log(req.body);
     const result = await createUser(req.body);
     result?._id
       ? res.json({
@@ -18,7 +17,7 @@ router.post("/", async (req, res, next) => {
           message: "Insert user done Successfully",
         })
       : res.json({
-          status: "OK",
+          status: "error",
           message: "unable to add user, please try again",
         });
   } catch (error) {

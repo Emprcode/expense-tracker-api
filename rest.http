@@ -1,3 +1,14 @@
 ### checking if the servcer is live
 
 GET http://localhost:8000/
+
+###Post new user
+
+POST http://localhost:8000/api/v1/user
+Content-Type: application/json
+
+{
+    "name":"ena",
+    "email":"ca@gmail.com",
+    "pin":1234
+}

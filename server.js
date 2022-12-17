@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import { connectDb } from "./src/config/dbConfig.js";
+import router from "./src/routers/userRouter.js";
 
 const app = express();
 
@@ -13,6 +14,12 @@ app.use(cors());
 app.use(morgan("dev"));
 
 connectDb();
+
+// Routers
+app.use("/api/v1/user", router);
+// User router to handle resgistration and login
+//transaction router to handle all registration
+
 // handle uncaught error
 
 app.use("*", (req, res, next) => {
